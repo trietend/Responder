@@ -325,11 +325,11 @@ def PsqlConnect():
 def _CreateResponderDbPsql():
 	conn = PsqlConnect()
 	cursor = conn.cursor()
-	cursor.execute('CREATE TABLE IF NOT EXISTS Poisoned (timestamp TEXT, Poisoner TEXT, SentToIp TEXT, ForName TEXT, AnalyzeMode TEXT)')
+	cursor.execute('CREATE TABLE IF NOT EXISTS Poisoned (timestamp TIMESTAMP, Poisoner TEXT, SentToIp TEXT, ForName TEXT, AnalyzeMode TEXT)')
 	conn.commit()
-	cursor.execute('CREATE TABLE IF NOT EXISTS responder (timestamp TEXT, module TEXT, type TEXT, client TEXT, hostname TEXT, username TEXT, cleartext TEXT, hash TEXT, fullhash TEXT)')
+	cursor.execute('CREATE TABLE IF NOT EXISTS responder (timestamp TIMESTAMP, module TEXT, type TEXT, client TEXT, hostname TEXT, username TEXT, cleartext TEXT, hash TEXT, fullhash TEXT)')
 	conn.commit()
-	cursor.execute('CREATE TABLE IF NOT EXISTS DHCP (timestamp TEXT, MAC TEXT, IP TEXT, RequestedIP TEXT)')
+	cursor.execute('CREATE TABLE IF NOT EXISTS DHCP (timestamp TIMESTAMP, MAC TEXT, IP TEXT, RequestedIP TEXT)')
 	conn.commit()
 	conn.close()
 
